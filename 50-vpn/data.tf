@@ -6,7 +6,7 @@ data "aws_ssm_parameter" "public_subnet_ids" {
     name = "/${var.project_name}/${var.environment}/public_subnet_ids"
 }
 
-data "aws_ami" "joindevops_ami" {
+data "aws_ami" "openvpn_ami" {
   most_recent = true
   owners      = ["679593333241"]
 
@@ -25,5 +25,4 @@ data "aws_ami" "joindevops_ami" {
     name   = "virtualization-type"
     values = ["hvm"]
   }
-
 }
