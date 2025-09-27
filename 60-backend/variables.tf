@@ -21,5 +21,5 @@ variable "backend_tags" {
 }
 
 variable "zone_name" {
-    default = "haridev.online"
+    default = "haridevops.space"
 }
