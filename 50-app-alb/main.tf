@@ -30,20 +30,19 @@ resource "aws_lb_listener" "http" {
       status_code  = "200"
     }
   }
-
 }
 
 module "records" {
   source  = "terraform-aws-modules/route53/aws//modules/records"
 
-  zone_name = var.zone_name #haridev.online
+  zone_name = var.zone_name #haridevops.space
   records = [
     {
-      name    = "*.app-${var.environment}" # *.app-dev -> something.app-dev.haridev.online
+      name    = "*.app-${var.environment}" # *.app-dev -> something.app-dev.haridevops.space
       type    = "A"
       alias   = {
         name    = module.app_alb.dns_name
-        zone_id = module.app_alb.zone_id # This belongs ALB internal hosted zone, not ours
+        zone_id = module.app_alb.zone_id # This belongs to ALB internal hosted zone, not ours
       }
       allow_overwrite = true
     }

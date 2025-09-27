@@ -20,12 +20,6 @@ variable "app_alb_tags" {
     }
 }
 
-variable "rds_tags" {
-    default = {
-        Component = "mysql"
-    }
-}
-
 variable "zone_name" {
-    default = "haridev.online"
+    default = "haridevops.space"
 }
