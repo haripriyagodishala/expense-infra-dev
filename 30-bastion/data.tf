@@ -25,5 +25,4 @@ data "aws_ami" "joindevops_ami" {
     name   = "virtualization-type"
     values = ["hvm"]
   }
-
 }

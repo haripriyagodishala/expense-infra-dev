@@ -113,7 +113,7 @@ resource "aws_autoscaling_group" "backend" {
   name                      = local.resource_name
   max_size                  = 10
   min_size                  = 2
-  health_check_grace_period = 60
+  health_check_grace_period = 300
   health_check_type         = "ELB"
   desired_capacity          = 2 # starting of the auto scaling group
   target_group_arns = [aws_lb_target_group.backend.arn]
@@ -141,7 +141,7 @@ resource "aws_autoscaling_group" "backend" {
 
   # If instances are not healthy with in 15min, autoscaling will delete that instance
   timeouts {
-    delete = "15m"
+    delete = "10m"
   }
 
   tag {

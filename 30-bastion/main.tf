@@ -3,6 +3,7 @@ module "bastion" {
 
   name = local.resource_name
   ami = data.aws_ami.joindevops_ami.id
+  
   instance_type          = "t2.micro"
   vpc_security_group_ids = [local.bastion_sg_id]
   subnet_id              = local.public_subnet_id

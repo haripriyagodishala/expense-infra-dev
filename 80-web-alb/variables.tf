@@ -20,7 +20,10 @@ variable "web_alb_tags" {
     }
 }
 
+variable "zone_id" {
+    default = "Z093607530ANTLUSW2UYR"
+}
 
 variable "zone_name" {
-    default = "haridev.online"
+    default = "haridevops.space"
 }

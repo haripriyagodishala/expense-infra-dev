@@ -16,9 +16,9 @@ variable "common_tags" {
 
 
 variable "zone_name" {
-    default = "haridev.online"
+    default = "haridevops.space"
 }
 
 variable "zone_id" {
-    default = "Z0319298P5GCQ7XL0T6L"
+    default = "Z093607530ANTLUSW2UYR"
 }

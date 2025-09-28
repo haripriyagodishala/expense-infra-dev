@@ -3,7 +3,7 @@ module "frontend" {
   ami = data.aws_ami.joindevops.id
   name = local.resource_name
 
-  instance_type          = "t3.micro"
+  instance_type          = "t2.micro"
   vpc_security_group_ids = [local.frontend_sg_id]
   subnet_id              = local.public_subnet_id
 
@@ -94,7 +94,7 @@ resource "aws_launch_template" "frontend" {
   name = local.resource_name
   image_id = aws_ami_from_instance.frontend.id
   instance_initiated_shutdown_behavior = "terminate"
-  instance_type = "t3.micro"
+  instance_type = "t2.micro"
   
   update_default_version = true
   vpc_security_group_ids = [local.frontend_sg_id]
@@ -140,7 +140,7 @@ resource "aws_autoscaling_group" "frontend" {
 
   # If instances are not healthy with in 15min, autoscaling will delete that instance
   timeouts {
-    delete = "15m"
+    delete = "10m"
   }
 
   tag {
@@ -174,7 +174,7 @@ resource "aws_lb_listener_rule" "frontend" {
 
   condition {
     host_header {
-      values = ["expense-${var.environment}.${var.zone_name}"] #expense-dev.daws81s.online
+      values = ["expense-${var.environment}.${var.zone_name}"] #expense-dev.haridevops.space
     }
   }
 }
